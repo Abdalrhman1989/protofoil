@@ -1,0 +1,54 @@
+@import "variables"; /* VARIABLER */
+
+@media #{$tablet} {
+
+header {
+  padding: 50px * 2 30px;
+}
+
+
+.sections {
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 15px;
+  grid-template-areas:
+  "visitors top_sales"
+  "activity sales"
+  "activity sales_cat";
+
+    section {
+      padding: 60px $padding;
+      width: calc(100% - 15px) !important;
+  }
+
+    .visitors {
+      .mobile {
+        display: none;
+    }
+
+      .tablet_pc {
+        display: block;
+    }
+
+
+      align-content: flex-start;
+
+      h2 {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+  }
+
+
+
+}
+.sales_t {
+  padding: 30px 0;
+}
+
+td {
+  padding: 30px 10px !important;
+}
+
+
+}

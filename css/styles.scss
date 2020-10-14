@@ -1,257 +1,472 @@
-/* Imports */
+@import "variables"; /* VARIABLER */
 
-@import "colors";
-
-/* Variables */
-
-$josefinSans: 'Josefin Sans';
-$inter: 'Inter';
-$thin: 100;
-$smallFont: 10px;
-
-$smallSpacing: 8px;
-$mediumSpacing: 16px;
-$largeSpacing: 24px;
-$extraLargeSpacing: 48px;
-
-$tablet: "screen and (min-width: 768px)";
-$computer: "screen and (min-width: 1200px)";
-
-/* Global */
-
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@mixin transition() { /* Inkluder en transition, ved at skrive " @include transition ". Kort og let! */
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-body{
-  font-family: $inter, sans-serif;
-  overflow-x: hidden;
-  line-height: 1.6;
+@mixin DropShadow() {
+  -webkit-box-shadow: 3px 3px 3px 0 rgba(0,0,0,.2);
+  box-shadow: 3px 3px 3px 0 rgba(0,0,0,.2);
 }
 
-li{
-  list-style-type: none;
+* { /* Gælder alt på hele siden */
+  box-sizing: border-box; /* Bokse har altid den størrelse man giver uanset om der tilføjes margen, padding mv. */
+  font-family: sans-serif;
+}
+/* Ovenstående kode kan give problemer ved nogle 3. parts scripts man henter. Men det gør det nemmere at forstå og lave kodning når man starter. */
+
+body {
+  margin: 0; /* Ingen kanter i siden af browser */
+  background-color: #F8F8F8;
+  color: $PrimaryGray;
 }
 
-a{
-  text-decoration: none;
+h1, h2, h3, h4, h5, h6 {
+  margin: 0; /* Ingen ydre margen fra overskrifter */
+  padding: 0; /* Ingen indre margen fra overskrifter */
+  text-transform: uppercase;
 }
 
-img{
-  max-width: 100%;
-  height: auto;
-  display: block;
+ul, ol {
+  margin: 2px 10px 2px 10px; /* Mindre margen på punkter */
+  padding: 0; /* Ingen indre margen fra lister */
+  list-style-position: inside; /* List punkter står på linje */
 }
 
-
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
-
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-
-h1, h2{
-  font-family: $josefinSans, 'sans-serif';
+li {
+  margin: 0; /* Ingen ydre margen fra listpunkter */
 }
 
-h2{
-  align-content: center;
-  font-weight: $thin;
+p {
+  margin: 0; /* Ingen ydre margen fra paragraffer */
+  padding: 0; /* Ingen indre margen fra paragraffer */
 }
 
-/* Mobile Styles */
-
-.grid{
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: $mediumSpacing;
+/* Sikrer billeder er responsive */
+img {
+  display: block; /* Billeder er et element (laver linjeskift) */
+  max-width: 100%; /* Bredde må maks fylde 100% */
+  height: auto; /* Højden skal tilpasse sig */
 }
 
-header{
-  background: $darkGray;
-  grid-column: 1/6;
-  display: flex;
-  padding: $smallSpacing;
-  justify-content: space-between;
+/* En class for transitions */
+.transition {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
 
-  i{
+/* button */
+
+button {
+  border: 0;
+  background-color: $PrimaryBlue;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 10px 15px;
+  @include transition;
+
+  &:hover {
+    background-color: lighten($PrimaryBlue, 20);
     cursor: pointer;
   }
+}
 
-  a:first-of-type{
+.link {
+  color: $PrimaryBlue;
+  text-decoration: none;
+  @include transition;
+
+  &:hover {
+    color: darken($PrimaryBlue, 20);
+    cursor: pointer;
+  }
+}
+
+.bold { font-weight: bold; }
+
+
+
+/* MENUBAR / NAV */
+#menu {
+  display: flex;
+  justify-content: space-between;
+  background-color:black;
+  padding: $padding;
+  flex-wrap: wrap;
+  top: 0;
+  position: sticky;
+  @include DropShadow;
+  font-size: 16px;
+
+  .logo_menu {
+    font-size: 30px;
+    font-weight: bold;
+    align-self: center;
+
+    &:hover {
+      color: $PrimaryBlue;
+      cursor: pointer;
+    }
+  }
+
+  .menu_item {
+    a {
+      text-decoration: none;
+      color: $PrimaryGray;
+
+      @include transition;
+
+      &:hover {
+        text-decoration: none;
+        color: $PrimaryBlue;
+
+      }
+    }
+
+    .fa-circle {
+      color: $PrimaryBlue;
+      padding-#{$right}: 5px;
+
+    }
+
+    &:last-child {
+      padding-#{$top}: 20px;
+    }
+  }
+
+  .fa-user {
+    padding: 20px;
+    background-color: lightgray;
+    margin-#{$right}:20px;
+    color: white;
+  }
+
+  .burger_menu {
+    display: block;
+    text-align: right;
+    cursor: pointer;
+    align-self: center;
+
+    .fa-bars {
+      font-size:23px;
+      color: #504f4d;
+    }
+  } /* Burger menu */
+
+
+  .toggle {
+    display: none;
+    text-align: right;
+    width: 100%;
+    line-height: 55px;
+    margin-#{$top}: 20px;
+  }
+
+
+  /* only for pc */
+  .pc_menu {
+    display: none; /* skjuler PC menu */
+  }
+
+  .user_menu {
     display: none;
   }
 
-  a:last-of-type{
-    font-size: $smallFont;
-    color: $white;
+}
+
+/* WRAPPER */
+#wrapper {
+  padding: $padding;
+}
+
+
+/* HEADER */
+
+header {
+  background-color: $PrimaryRed;
+  @include DropShadow;
+  padding: 50px 30px;
+  color: white;
+  text-align: center;
+
+  h1 {
+    line-height: 40px;
   }
 
-  nav{
-    ul{
+  p {
+    padding: 20px 0 15px 0;
+  }
+
+  button {
+    border: 0;
+    background-color: white;
+    color: $PrimaryRed;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    @include transition;
+
+    &:hover {
+      background-color: lighten($PrimaryRed, 20);
+      cursor: pointer;
+    }
+  }
+}
+
+.sections {
+  display: grid;
+  margin: $padding 0;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+          "visitors"
+          "top_sales"
+          "sales"
+          "sales_cat"
+          "activity";
+
+  section {
+    padding: 40px $padding;
+    margin-bottom: $padding;
+    width: 100%;
+    background-color: white;
+    @include DropShadow;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+  .visitors {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: visitors;
+
+    .tablet_pc {
+      display: none;
+    }
+
+    .mobile {
+      display:block;
+    }
+
+    h2 {
+      width: 100%;
+    }
+
+    .gender {
+      padding: 20px;
+
+      .red { color: $PrimaryRed; }
+      .blue { color: $PrimaryBlue; }
+
+      .fa-square-full {
+        padding-#{$right}: 5px;
+
+      }
+    }
+
+
+  }
+
+  .top_selling {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: top_sales;
+
+    h2 {
+      margin-bottom: $padding;
+      width: 100%;
+    }
+
+    img {
+      margin-bottom: 10px;
+    }
+
+    .left {
+      text-align: left;
+    }
+
+    .right {
+      text-align: right;
+    }
+
+    p {
+      padding: 0;
+      width: 50%;
+
+    }
+
+  }
+
+  .sales {
+    grid-area: sales;
+
+
+
+    .this_month {
+      margin-top: 15px;
+      background: lighten(#A3DD9F, 20);
       display: flex;
-      li{
-        margin-right: $smallSpacing;
-        a{
-          display: none;
+      padding: 20px;
+      align-items: center;
+      text-align: left;
+      justify-content: center;
+
+      h2 {
+        font-size: 30px;
+      }
+    }
+
+    .fa-dollar-sign {
+      color: white;
+      background-color: #A3DD9F;
+      border-radius: 100%;
+      padding: 23px 30px;
+      margin-right: 10px;
+    }
+
+    .fa-arrow-up {
+      color: #A3DD9F;
+    }
+
+    table {
+      margin-top: 50px;
+      padding: 10px;
+      width: 100%;
+      font-size: 15px;
+      text-align: left;
+      text-transform: uppercase;
+      border-collapse: collapse;
+
+      th {
+        color: darken(#F8F8F8, 20);
+        padding: 0 0 3px 10px;
+      }
+
+      tr:not(:first-child) {
+        background-color: #F8F8F8;
+        border-bottom: 1px solid darken(#F8F8F8, 10);
+
+      }
+
+      tr:last-child {
+        border: 0;
+      }
+
+      td {
+        padding: 20px 10px;
+
+        .fa-user {
+          background-color: $PrimaryBlue;
+          padding: 7px;
+          margin-right: 5px;
+          color: white;
         }
       }
     }
-  }
-}
 
-main{
-  padding: $largeSpacing $smallSpacing;
 
-  h1{
-    color: $darkGray;
   }
 
-  #cards{
-    margin-top: $largeSpacing;
-  }
-}
+  .sales_cat {
 
-@mixin cardStyles() {
-  grid-column: 1/6;
-  padding: $mediumSpacing;
-  background: $lightGray;
-  color: $white;
-  cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+    grid-area: sales_cat;
 
-.card-a{
-  @include cardStyles();
-  background: $green;
-
-  .cardHeader{
-    margin-bottom: $largeSpacing;
-
-    h2{
-      display: inline;
-      text-decoration: underline;
-      margin-left: $smallSpacing;
+    h2 {
+      margin-bottom: $padding;
     }
   }
 
-  img{
-    max-width: 70%;
-    margin: 0 auto;
-  }
 
-  .cardContent{
-    margin-top: $largeSpacing
-  }
+  .activities {
+    grid-area: activity;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
 
-  .cardFooter{
-    margin-top: $extraLargeSpacing;
-
-    p{
-      font-size: $smallFont;
+    button {
+      margin: $padding auto 0 auto;
     }
-  }
-
-}
-
-.card-b{
-  @extend .card-a;
-  background: $blue;
-}
-
-.card-c{
-  @extend .card-a;
-  background: $lightGray;
-}
-
-.card-d{
-  @extend .card-c;
-}
-
-/* Tablet Styles */
-
-@media #{$tablet}{
-
-  .grid{
-    grid-template-columns: repeat(8, 1fr);
-  }
-
-  header{
-    grid-column: 1/9;
-  }
-
-  .card-a{
-    grid-column: 1/5;
-  }
-
-  .card-b{
-    grid-column: 5/9;
-
-    img{
-      max-width: 44.2%;
-    }
-  }
-
-  .card-d{
-    grid-column: 5/9;
-  }
-
-}
-
-/* Computer Styles */
-
-@media #{$computer}{
-
-  .container{
-    max-width: 1200px;
-    margin: auto;
-  }
-
-  header{
-    padding: $largeSpacing;
-
-    a:last-of-type{
-      font-size: $smallFont + 2;
+    h2 {
+      width: 100%;
+      text-align: center;
     }
 
-    nav{
-      ul{
-        li{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-right: $mediumSpacing;
-          i{
-            cursor: default;
-          }
-          h2{
-            align-content: center;
-          }
 
-          a{
-            display: block !important;
-            margin-left: $smallSpacing;
-            font-size: $smallFont + 2 !important;
-          }
+    h3 {
+      margin-top: 50px;
+      width: 50%;
+
+      .fa-user {
+        background-color: $PrimaryBlue;
+        padding: 6px 7px;
+        margin-right: 10px;
+        color: white;
+      }
+    }
+
+    .timestamp {
+      @extend h3;
+      text-align: right; }
+
+
+    .activity {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin: 10px 0 0 45px;
+
+      .fa-plus-square {
+        color: $PrimaryRed;
+        margin-right: 10px;
+      }
+
+      .fa-pen-square {
+        @extend .fa-plus-square;
+      }
+
+      .preview {
+        width: 90%;
+        margin: 15px 0 0 0;
+        padding: 20px 15px;
+        border: solid 1px $PrimaryRed;
+
+        .price {
+          padding: 5px 10px;
+          text-transform: uppercase;
+          color:white;
+          background-color: $PrimaryRed;
+          font-weight: bold;
+        }
+
+        b {
+          text-transform: uppercase;
+        }
+
+        p {
+          margin-#{$top}:10px;
         }
       }
     }
+
   }
 
-  .grid{
-    gap: $largeSpacing;
-  }
+
 
 }
 
-/* Colors */
 
-$darkGray: #2c616a;
-$lightGray: #515C9D;
-$white: #fff;
-$green: #4EB29F;
-$blue: #2C610A;
+
+@import "tablet"; /* STYLING TIL TABLET */
+@import "computer"; /* STYLING TIL COMPUTER */

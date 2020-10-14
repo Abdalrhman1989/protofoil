@@ -1,2 +1,393 @@
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:Inter,sans-serif;overflow-x:hidden;line-height:1.6}li{list-style-type:none}a{text-decoration:none}img{max-width:100%;height:auto;display:block}.material-icons.md-light{color:#fff}.material-icons.md-light.md-inactive{color:hsla(0,0%,100%,.3)}.material-icons.md-18{font-size:18px}.material-icons.md-24{font-size:24px}.material-icons.md-36{font-size:36px}.material-icons.md-48{font-size:48px}h1,h2{font-family:Josefin Sans,"sans-serif"}h2{font-weight:100}.grid{display:-ms-grid;display:grid;-ms-grid-columns:(1fr)[5];grid-template-columns:repeat(5,1fr);gap:16px}header{background:darkolivegreen;-ms-grid-column:1;-ms-grid-column-span:5;grid-column:1/6;display:flex;padding:8px;justify-content:space-between}header i{cursor:pointer}header a:first-of-type{display:none}header a:last-of-type{font-size:10px;color:#fff}header nav ul{display:flex}header nav ul li{margin-right:8px}header nav ul li a{display:none}main{padding:24px 8px}main h1{color:#353a43}main #cards{margin-top:24px}.card-a,.card-b,.card-c,.card-d{-ms-grid-column:1;-ms-grid-column-span:5;grid-column:1/6;padding:16px;background:black;color:#fff;cursor:pointer;box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19);background:#4eb24f}.card-a .cardHeader,.card-b .cardHeader,.card-c .cardHeader,.card-d .cardHeader{margin-bottom:24px}.card-a .cardHeader h2,.card-b .cardHeader h2,.card-c .cardHeader h2,.card-d .cardHeader h2{display:inline;text-decoration:underline; align-content:center;justify-self: center; margin-left:8px}.card-a img,.card-b img,.card-c img,.card-d img{max-width:70%;margin:0 auto}.card-a .cardContent,.card-b .cardContent,.card-c .cardContent,.card-d .cardContent{margin-top:24px}.card-a .cardFooter,.card-b .cardFooter,.card-c .cardFooter,.card-d .cardFooter{margin-top:48px}.card-a .cardFooter p,.card-b .cardFooter p,.card-c .cardFooter p,.card-d .cardFooter p{font-size:10px}.card-b{background:#2c609a}.card-c,.card-d{background:#515c6d}@media screen and (min-width:768px){.grid{-ms-grid-columns:(1fr)[8];grid-template-columns:repeat(8,1fr)}header{-ms-grid-column:1;-ms-grid-column-span:8;grid-column:1/9}.card-a,.card-b,.card-c,.card-d{-ms-grid-column:1;-ms-grid-column-span:4;grid-column:1/5}.card-b{-ms-grid-column:5;-ms-grid-column-span:4;grid-column:5/9}.card-b img{max-width:44.2%}.card-d{-ms-grid-column:5;-ms-grid-column-span:4;grid-column:5/9}}@media screen and (min-width:1200px){.container{max-width:1200px;margin:auto}header{padding:24px}header a:last-of-type{font-size:12px}header nav ul li{display:flex;align-items:center;margin-right:16px}header nav ul li i{cursor:default}header nav ul li a{display:block!important;margin-left:8px;font-size:12px!important}.grid{gap:24px}}
+@charset "UTF-8";
+/* VARIABLER KAN SAMLES HER */
+/* MEDIA QUERIES */
+/* VARIABLER */
+* {
+    /* Gælder alt på hele siden */
+    box-sizing: border-box;
+    /* Bokse har altid den størrelse man giver uanset om der tilføjes margen, padding mv. */
+    font-family: sans-serif; }
 
+/* Ovenstående kode kan give problemer ved nogle 3. parts scripts man henter. Men det gør det nemmere at forstå og lave kodning når man starter. */
+body {
+    margin: 0;
+    /* Ingen kanter i siden af browser */
+    background-color: black;
+    color: #69696E; }
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    /* Ingen ydre margen fra overskrifter */
+    padding: 0;
+    /* Ingen indre margen fra overskrifter */
+    text-transform: uppercase; }
+
+ul, ol {
+    margin: 2px 10px 2px 10px;
+    /* Mindre margen på punkter */
+    padding: 0;
+    /* Ingen indre margen fra lister */
+    list-style-position: inside;
+    /* List punkter står på linje */ }
+
+li {
+    margin: 0;
+    /* Ingen ydre margen fra listpunkter */ }
+
+p {
+    margin: 0;
+    /* Ingen ydre margen fra paragraffer */
+    padding: 0;
+    /* Ingen indre margen fra paragraffer */ }
+
+/* Sikrer billeder er responsive */
+img {
+    display: block;
+    /* Billeder er et element (laver linjeskift) */
+    max-width: 100%;
+    /* Bredde må maks fylde 100% */
+    height: auto;
+    /* Højden skal tilpasse sig */ }
+
+/* En class for transitions */
+.transition {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+
+/* button */
+button {
+    border: 0;
+    background-color: #63ABBC;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 15px;
+    /* Inkluder en transition, ved at skrive " @include transition ". Kort og let! */
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+button:hover {
+    background-color: #aad1db;
+    cursor: pointer; }
+
+.link {
+    color: #63ABBC;
+    text-decoration: none;
+    /* Inkluder en transition, ved at skrive " @include transition ". Kort og let! */
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+.link:hover {
+    color: #387381;
+    cursor: pointer; }
+
+.bold {
+    font-weight: bold; }
+
+/* MENUBAR / NAV */
+#menu {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 30px;
+    flex-wrap: wrap;
+    top: 0;
+    position: sticky;
+    -webkit-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    /* Burger menu */
+    /* only for pc */ }
+#menu .logo_menu {
+    font-size: 30px;
+    font-weight: bold;
+    align-self: center; }
+#menu .logo_menu:hover {
+    color: #63ABBC;
+    cursor: pointer; }
+#menu .menu_item a {
+    text-decoration: none;
+    color: #69696E;
+    /* Inkluder en transition, ved at skrive " @include transition ". Kort og let! */
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+#menu .menu_item a:hover {
+    text-decoration: none;
+    color: #63ABBC; }
+#menu .menu_item .fa-circle {
+    color: #63ABBC;
+    padding-right: 5px; }
+#menu .menu_item:last-child {
+    padding-top: 20px; }
+#menu .fa-user {
+    padding: 20px;
+    background-color: lightblue;
+    margin-right: 20px;
+    color: white; }
+#menu .burger_menu {
+    display: block;
+    text-align: right;
+    cursor: pointer;
+    align-self: center; }
+#menu .burger_menu .fa-bars {
+    font-size: 23px;
+    color: #504f4d; }
+#menu .toggle {
+    display: none;
+    text-align: right;
+    width: 100%;
+    line-height: 55px;
+    margin-top: 20px; }
+#menu .pc_menu {
+    display: none;
+    /* skjuler PC menu */ }
+#menu .user_menu {
+    display: none; }
+
+/* WRAPPER */
+#wrapper {
+    padding: 30px; }
+
+/* HEADER */
+header {
+    background-color: cornflowerblue;
+    -webkit-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2);
+    padding: 50px 30px;
+    color: white;
+    text-align: center; }
+header h1 {
+    line-height: 40px; }
+header p {
+    padding: 20px 0 15px 0; }
+header button {
+    border: 0;
+    background-color: white;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    /* Inkluder en transition, ved at skrive " @include transition ". Kort og let! */
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease; }
+header button:hover {
+    background-color: #f2dadc;
+    cursor: pointer; }
+
+.sections {
+    display: grid;
+    margin: 30px 0;
+    grid-template-columns: 1fr;
+    grid-template-areas: "visitors" "top_sales" "sales" "sales_cat" "activity"; }
+.sections section {
+    padding: 40px 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    background-color: white;
+    -webkit-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    justify-content: center; }
+.sections .visitors {
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: visitors; }
+.sections .visitors .tablet_pc {
+    display: none; }
+.sections .visitors .mobile {
+    display: block; }
+.sections .visitors h2 {
+    width: 100%; }
+.sections .visitors .gender {
+    padding: 20px; }
+.sections .visitors .gender .red {
+    color: #D69094; }
+.sections .visitors .gender .blue {
+    color: #63ABBC; }
+.sections .visitors .gender .fa-square-full {
+    padding-right: 5px; }
+.sections .top_selling {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: top_sales; }
+.sections .top_selling h2 {
+    margin-bottom: 30px;
+    width: 100%; }
+.sections .top_selling img {
+    margin-bottom: 10px; }
+.sections .top_selling .left {
+    text-align: left; }
+.sections .top_selling .right {
+    text-align: right; }
+.sections .top_selling p {
+    padding: 0;
+    width: 50%; }
+.sections .sales {
+    grid-area: sales; }
+.sections .sales .this_month {
+    margin-top: 15px;
+    background: #ebf8ea;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    text-align: left;
+    justify-content: center; }
+.sections .sales .this_month h2 {
+    font-size: 30px; }
+.sections .sales .fa-dollar-sign {
+    color: white;
+    background-color: #A3DD9F;
+    border-radius: 100%;
+    padding: 23px 30px;
+    margin-right: 10px; }
+.sections .sales .fa-arrow-up {
+    color: #A3DD9F; }
+.sections .sales table {
+    margin-top: 50px;
+    padding: 10px;
+    width: 100%;
+    font-size: 15px;
+    text-align: left;
+    text-transform: uppercase;
+    border-collapse: collapse; }
+.sections .sales table th {
+    color: #c5c5c5;
+    padding: 0 0 3px 10px; }
+.sections .sales table tr:not(:first-child) {
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #dfdfdf; }
+.sections .sales table tr:last-child {
+    border: 0; }
+.sections .sales table td {
+    padding: 20px 10px; }
+.sections .sales table td .fa-user {
+    background-color: #63ABBC;
+    padding: 7px;
+    margin-right: 5px;
+    color: white; }
+.sections .sales_cat {
+    grid-area: sales_cat; }
+.sections .sales_cat h2 {
+    margin-bottom: 30px; }
+.sections .activities {
+    grid-area: activity;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left; }
+.sections .activities button {
+    margin: 30px auto 0 auto; }
+.sections .activities h2 {
+    width: 100%;
+    text-align: center; }
+.sections .activities h3, .sections .activities .timestamp {
+    margin-top: 50px;
+    width: 50%; }
+.sections .activities h3 .fa-user, .sections .activities .timestamp .fa-user {
+    background-color: #63ABBC;
+    padding: 6px 7px;
+    margin-right: 10px;
+    color: white; }
+.sections .activities .timestamp {
+    text-align: right; }
+.sections .activities .activity {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px 0 0 45px; }
+.sections .activities .activity .fa-plus-square, .sections .activities .activity .fa-pen-square {
+    color: #D69094;
+    margin-right: 10px; }
+.sections .activities .activity .preview {
+    width: 90%;
+    margin: 15px 0 0 0;
+    padding: 20px 15px;
+    border: solid 1px #D69094; }
+.sections .activities .activity .preview .price {
+    padding: 5px 10px;
+    text-transform: uppercase;
+    color: white;
+    background-color: #D69094;
+    font-weight: bold; }
+.sections .activities .activity .preview b {
+    text-transform: uppercase; }
+.sections .activities .activity .preview p {
+    margin-top: 10px; }
+
+/* VARIABLER KAN SAMLES HER */
+/* MEDIA QUERIES */
+/* VARIABLER */
+@media screen and (min-width: 768px) {
+    header {
+        padding: 100px 30px; }
+    .sections {
+        grid-template-columns: 50% 50%;
+        grid-column-gap: 15px;
+        grid-template-areas: "visitors top_sales" "activity sales" "activity sales_cat"; }
+    .sections section {
+        padding: 60px 30px;
+        width: calc(100% - 15px) !important; }
+    .sections .visitors {
+        align-content: flex-start; }
+    .sections .visitors .mobile {
+        display: none; }
+    .sections .visitors .tablet_pc {
+        display: block; }
+    .sections .visitors h2 {
+        margin: 0 !important;
+        padding: 0 !important; }
+    .sales_t {
+        padding: 30px 0; }
+    td {
+        padding: 30px 10px !important; } }
+
+/* STYLING TIL TABLET */
+/* VARIABLER KAN SAMLES HER */
+/* MEDIA QUERIES */
+/* VARIABLER */
+@media screen and (min-width: 1200px) {
+    #wrapper {
+        padding: 30px 180px; }
+    header {
+        padding: 200px 30px; }
+    section {
+        align-content: flex-start; }
+    .activities .preview {
+        margin-bottom: 30px !important; }
+    .sales_t {
+        padding: 20px 0; }
+    td {
+        padding: 20px 10px !important; }
+    /* MENUBAR / NAV */
+    .menu_item {
+        padding-left: 50px;
+        align-self: center; }
+    .menu_item:last-child {
+        padding-top: 0 !important; }
+    #menu {
+        padding: 30px 180px;
+        /* skjuler burger menu */ }
+    #menu .pc_menu {
+        display: flex;
+        align-content: center; }
+    #menu .user_menu {
+        display: block !important; }
+    #menu .burger_menu, #menu .toggle {
+        display: none; } }
+
+/* STYLING TIL COMPUTER */
+
+/*# sourceMappingURL=styles.css.map */

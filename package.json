@@ -19,3 +19,11 @@
     "gulp-terser": "^1.4.0"
   }
 }
+
+"browserslist": [
+"defaults",
+"not IE 11",
+"not IE_Mob 11",
+"maintained node versions"
+]
+}

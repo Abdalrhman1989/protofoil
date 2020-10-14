@@ -59,7 +59,7 @@ img {
 /* button */
 button {
     border: 0;
-    background-color: #63ABBC;
+    background-color: black;
     color: white;
     text-transform: uppercase;
     font-weight: bold;
@@ -70,7 +70,7 @@ button {
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease; }
 button:hover {
-    background-color: #aad1db;
+    background-color: lightskyblue;
     cursor: pointer; }
 
 .link {
@@ -120,9 +120,6 @@ button:hover {
 #menu .menu_item a:hover {
     text-decoration: none;
     color: #63ABBC; }
-#menu .menu_item .fa-circle {
-    color: #63ABBC;
-    padding-right: 5px; }
 #menu .menu_item:last-child {
     padding-top: 20px; }
 #menu .fa-user {
@@ -137,7 +134,7 @@ button:hover {
     align-self: center; }
 #menu .burger_menu .fa-bars {
     font-size: 23px;
-    color: #504f4d; }
+    color: black; }
 #menu .toggle {
     display: none;
     text-align: right;
@@ -156,9 +153,9 @@ button:hover {
 
 /* HEADER */
 header {
-    background-color: cornflowerblue;
-    -webkit-box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 3px 3px 3px 0 rgba(0, 0, 0, 0.2);
+    background-image: url("https://bohmtheatre.org/wp-content/uploads/2015/09/film-banner.jpg");
+    -webkit-box-shadow: 3px 3px 3px 0 rgba(1, 2, 3, 0.5);
+    box-shadow: 3px 3px 3px 0 rgba(1, 1, 2, 3.5);
     padding: 50px 30px;
     color: white;
     text-align: center; }
@@ -211,7 +208,7 @@ header button:hover {
 .sections .visitors .gender {
     padding: 20px; }
 .sections .visitors .gender .red {
-    color: #D69094; }
+    color: lightskyblue; }
 .sections .visitors .gender .blue {
     color: #63ABBC; }
 .sections .visitors .gender .fa-square-full {
@@ -248,12 +245,12 @@ header button:hover {
     font-size: 30px; }
 .sections .sales .fa-dollar-sign {
     color: white;
-    background-color: #A3DD9F;
+    background-color: lightskyblue;
     border-radius: 100%;
     padding: 23px 30px;
     margin-right: 10px; }
 .sections .sales .fa-arrow-up {
-    color: #A3DD9F; }
+    color: cornflowerblue; }
 .sections .sales table {
     margin-top: 50px;
     padding: 10px;
@@ -309,18 +306,18 @@ header button:hover {
     align-items: center;
     margin: 10px 0 0 45px; }
 .sections .activities .activity .fa-plus-square, .sections .activities .activity .fa-pen-square {
-    color: #D69094;
+    color: lightskyblue;
     margin-right: 10px; }
 .sections .activities .activity .preview {
     width: 90%;
     margin: 15px 0 0 0;
     padding: 20px 15px;
-    border: solid 1px #D69094; }
+    border: solid 1px lightskyblue; }
 .sections .activities .activity .preview .price {
     padding: 5px 10px;
     text-transform: uppercase;
     color: white;
-    background-color: #D69094;
+    background-color: lightskyblue;
     font-weight: bold; }
 .sections .activities .activity .preview b {
     text-transform: uppercase; }
